@@ -28,5 +28,6 @@
     <None Remove="DomainService\obj\DomainService.csproj.nuget.g.targets" />
     <None Remove="DomainService\obj\project.assets.json" />
     <None Remove="DomainService\obj\DomainService.csproj.nuget.cache" />
+    <None Remove="DomainService\obj\DomainService.csproj.nuget.cache" />
   </ItemGroup>
 </Project>
