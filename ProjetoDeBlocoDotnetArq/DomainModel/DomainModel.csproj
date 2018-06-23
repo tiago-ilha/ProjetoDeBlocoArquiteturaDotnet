@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="Clientes\Pessoa.cs" />
+    <Compile Remove="Clientes\PessoaJuridica.cs" />
+    <Compile Remove="Clientes\Cliente.cs" />
+    <Compile Remove="Clientes\PessoaFisica.cs" />
+    <Compile Remove="Cadastros\ObjetosDeValor\NomeCompleto.cs" />
+    <Compile Remove="Cadastros\Modelos\Pessoa.cs" />
+    <Compile Remove="DomainService\Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cadastros\" />
+    <Folder Include="Cadastros\Modelos\" />
+    <Folder Include="Cadastros\Modelos\Clientes\" />
+    <Folder Include="Cadastros\ObjetosDeValor\" />
+    <Folder Include="Cadastros\Modelos\Clientes\Repositorios\" />
+    <Folder Include="Cadastros\Modelos\Clientes\Servicos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DomainService\obj\Debug\netcoreapp2.1\DomainService.assets.cache" />
+    <None Remove="DomainService\obj\DomainService.csproj.nuget.g.props" />
+    <None Remove="DomainService\obj\DomainService.csproj.nuget.g.targets" />
+    <None Remove="DomainService\obj\project.assets.json" />
+    <None Remove="DomainService\obj\DomainService.csproj.nuget.cache" />
+  </ItemGroup>
+</Project>
