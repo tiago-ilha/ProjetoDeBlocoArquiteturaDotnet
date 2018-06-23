@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Class1.cs"/>
+    <Compile Remove="Mapeamentos\SolicitacaoDeClienteMap.cs"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuracoes\"/>
+    <Folder Include="Mapeamentos\"/>
+    <Folder Include="Repositorios\"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dominio\PB.Solicitacoes.DomainModel\PB.Solicitacoes.DomainModel.csproj"/>
+  </ItemGroup>
+</Project>
