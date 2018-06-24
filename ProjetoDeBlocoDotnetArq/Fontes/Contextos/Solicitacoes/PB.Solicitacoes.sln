@@ -5,17 +5,21 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Servico", "2 - Servico", "{4FC10979-E34A-4D33-AB18-B99FD12C84A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB.Solicitacoes.Api", "2 - Servico\PB.Solicitacoes.Api\PB.Solicitacoes.Api.csproj", "{6310F8D4-F705-4641-AAAF-31F12391B405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PB.Solicitacoes.Api", "2 - Servico\PB.Solicitacoes.Api\PB.Solicitacoes.Api.csproj", "{6310F8D4-F705-4641-AAAF-31F12391B405}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Dominio", "3 - Dominio", "{42E1C2F0-74F4-4748-B472-D300BD6DC229}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB.Solicitacoes.DomainModel", "3 - Dominio\PB.Solicitacoes.DomainModel\PB.Solicitacoes.DomainModel.csproj", "{09A08865-E086-4835-A01F-48A47732134D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PB.Solicitacoes.DomainModel", "3 - Dominio\PB.Solicitacoes.DomainModel\PB.Solicitacoes.DomainModel.csproj", "{09A08865-E086-4835-A01F-48A47732134D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{C8027EA1-8129-421E-8029-875342C9CBA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB.Solicitacoes.Infra", "4 - Infra\PB.Solicitacoes.Infra\PB.Solicitacoes.Infra.csproj", "{C2197B25-3D6E-4D29-917F-E2F92E44F091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PB.Solicitacoes.Infra", "4 - Infra\PB.Solicitacoes.Infra\PB.Solicitacoes.Infra.csproj", "{C2197B25-3D6E-4D29-917F-E2F92E44F091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB.Solicitacoes.DomainService", "3 - Dominio\PB.Solicitacoes.DomainService\PB.Solicitacoes.DomainService.csproj", "{C87F311C-FA05-4A3F-A7E5-2FAE4153F847}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apresentacao", "1 - Apresentacao", "{D70ECFFB-45D3-4655-8C66-12F3D22DFE7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSolicitacao", "WebSolicitacao\WebSolicitacao.csproj", "{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,11 +79,30 @@ Global
 		{C87F311C-FA05-4A3F-A7E5-2FAE4153F847}.Release|x64.Build.0 = Release|Any CPU
 		{C87F311C-FA05-4A3F-A7E5-2FAE4153F847}.Release|x86.ActiveCfg = Release|Any CPU
 		{C87F311C-FA05-4A3F-A7E5-2FAE4153F847}.Release|x86.Build.0 = Release|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Debug|x64.Build.0 = Debug|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Debug|x86.Build.0 = Debug|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Release|x64.ActiveCfg = Release|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Release|x64.Build.0 = Release|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Release|x86.ActiveCfg = Release|Any CPU
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6310F8D4-F705-4641-AAAF-31F12391B405} = {4FC10979-E34A-4D33-AB18-B99FD12C84A3}
 		{09A08865-E086-4835-A01F-48A47732134D} = {42E1C2F0-74F4-4748-B472-D300BD6DC229}
 		{C2197B25-3D6E-4D29-917F-E2F92E44F091} = {C8027EA1-8129-421E-8029-875342C9CBA1}
 		{C87F311C-FA05-4A3F-A7E5-2FAE4153F847} = {42E1C2F0-74F4-4748-B472-D300BD6DC229}
+		{05E5EA27-5F36-4CC1-AB8B-249D036DD5FA} = {D70ECFFB-45D3-4655-8C66-12F3D22DFE7A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E86DBC9B-8911-42E7-9E00-7119FE5B4EEB}
 	EndGlobalSection
 EndGlobal
