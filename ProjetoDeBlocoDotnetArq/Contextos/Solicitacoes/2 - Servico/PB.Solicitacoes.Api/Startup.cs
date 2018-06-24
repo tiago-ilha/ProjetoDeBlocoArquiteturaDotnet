@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using PB.Solicitacoes.Infra.Configuracoes;
+// using PB.Solicitacoes.Infra.Configuracoes;
 using Microsoft.EntityFrameworkCore;
 
 namespace PB.Solicitacoes.Api
@@ -27,7 +27,7 @@ namespace PB.Solicitacoes.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ContextoDeSolicitacoes>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("ProjetoDeBloco.Solicitacoes")));
+            // services.AddDbContext<ContextoDeSolicitacoes>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("ProjetoDeBloco.Solicitacoes")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

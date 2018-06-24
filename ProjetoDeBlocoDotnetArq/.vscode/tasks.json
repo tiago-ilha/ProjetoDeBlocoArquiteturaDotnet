@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Fontes/Contextos/Solicitacoes/2 - Servico/PB.Solicitacoes.Api/PB.Solicitacoes.Api.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

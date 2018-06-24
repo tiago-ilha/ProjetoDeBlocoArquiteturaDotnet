@@ -17,9 +17,7 @@ namespace PB.Solicitacoes.DomainModel.Modelos.Entidades
 
         public Guid Id { get; protected set; }
         public Nome Nome { get; protected set; }
-
         public Documento Documento { get; protected set; }
-
         public Endereco Endereco { get; protected set; }
     }
 }
