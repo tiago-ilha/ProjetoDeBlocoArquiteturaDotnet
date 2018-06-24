@@ -4,11 +4,11 @@ using PB.Solicitacoes.DomainModel.Modelos.Enums;
 
 namespace PB.Solicitacoes.DomainModel.Modelos
 {
-    public class SolicitacaoDeCliente
+    public class SolicitacaoDoCliente
     {
-        protected SolicitacaoDeCliente() { }
+        protected SolicitacaoDoCliente() { }
 
-        public SolicitacaoDeCliente(Cliente cliente) : this()
+        public SolicitacaoDoCliente(Cliente cliente) : this()
         {
             Cliente = cliente;
 
