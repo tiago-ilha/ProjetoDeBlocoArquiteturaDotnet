@@ -11,8 +11,8 @@
 	<div class="col-md-3">
 		<h2>Solicitação</h2>
 		<ul>
-			<li><a data-toggle="modal" data-target="#NovaContaCorrenteModal">Nova Conta Corrente</a></li>
-			<li><a data-toggle="modal" data-target="#NovaContaPoupancaModal">Nova Conta Poupança</a></li>
+			<li><a data-toggle="modal" data-target="#ModalNovaContaCorrente">Nova Conta Corrente</a></li>
+			<li><a data-toggle="modal" data-target="#ModalNovaContaPoupanca">Nova Conta Poupança</a></li>
 			<li><a data-toggle="modal" data-target="#ModalAnalisarSolicitacao">Analisar Solicitação</a></li>
 		</ul>
 	</div>
@@ -26,14 +26,14 @@
 	<div class="col-md-3">
 		<h2>Produto</h2>
 		<ul>
-			<li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Novo Produto</a></li>
-			<li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Pesquisar Produtos</a></li>
+			<li><a data-toggle="modal" data-target="#ModalNovoProduto">Novo Produto</a></li>
+			<li><a data-toggle="modal" data-target="#ModalPesquisarProduto">Pesquisar Produtos</a></li>
 		</ul>
 	</div>
 </div>
 
 <!-- Modal Cadastro Conta Corrente -->
-<div class="modal fade" id="NovaContaCorrenteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="ModalNovaContaCorrente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<form id="cadastroContaCorrente">
@@ -86,7 +86,7 @@
 </div>
 
 <!-- Modal Cadastro Conta Poupança -->
-<div class="modal fade" id="NovaContaPoupancaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="ModalNovaContaPoupanca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<form id="cadastroContaPoupanca">
@@ -173,6 +173,37 @@
 	</div>
 </div>
 
+<!-- Modal Novo Produto -->
+<div class="modal fade" id="ModalNovoProduto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form id="cadastroPessoaJuridica">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Informe os campos do produto novo</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-success" role="alert">...</div>
+					<div class="alert alert-info" role="alert">...</div>
+					<div class="alert alert-warning" role="alert">...</div>
+					<div class="alert alert-danger" role="alert">...</div>
+					<div class="form-group">
+						<label for="inputCliente">CNPJ</label>
+						<input type="text" class="form-control" id="inputCNPJ" placeholder="CNPJ">
+					</div>					
+					<div class="form-group">
+						<label for="inputCliente">Nome e sobrenome</label>
+						<input type="text" class="form-control" id="inputNome" placeholder="Nome Completo">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 <!-- Modal Cadastro Cliente Pessoa Jurídica-->
 <div class="modal fade" id="ModalPessoaJuridica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
