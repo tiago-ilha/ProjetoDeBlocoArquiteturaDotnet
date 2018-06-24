@@ -5,9 +5,12 @@ namespace PB.Solicitacoes.DomainModel.Modelos.Entidades
 {
     public class PessoaJuridica : Cliente
     {
-        protected PessoaJuridica(RazaoSocial razaoSocial, NomeFantasia nomeFantasia, CNPJ cnpj, Endereco endereco) :
-            base(razaoSocial, cnpj, endereco)
+        protected PessoaJuridica(Nome nomeCompleto, string nomeFantasia, string documento) : 
+            base(nomeCompleto, documento)
         {
+            // this.NomeFantasia = nomeFantasia;
         }
+
+        // public string NomeFantasia { get; private set; }
     }
 }

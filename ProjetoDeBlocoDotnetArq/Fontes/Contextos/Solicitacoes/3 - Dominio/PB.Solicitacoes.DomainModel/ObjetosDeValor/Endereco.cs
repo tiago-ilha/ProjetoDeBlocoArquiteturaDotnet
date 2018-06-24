@@ -1,10 +1,7 @@
-﻿using System;
 namespace PB.Solicitacoes.DomainModel.ObjetosDeValor
 {
     public class Endereco
     {
-        protected Endereco() { }
-
         public Endereco(string cep, string logradouro, int numero, int? complemento, string bairro, string cidade, string estado)
         {
             Cep = cep;
@@ -16,12 +13,12 @@ namespace PB.Solicitacoes.DomainModel.ObjetosDeValor
             Estado = estado;
         }
 
-        public string Cep { get; private set; }
-        public string Logradouro { get; private set; }
-        public int Numero { get; private set; }
-        public int? Complemento { get; private set; }
-        public string Bairro { get; private set; }
-        public string Cidade { get; private set; }
-        public string Estado { get; private set; }
+        public virtual string Cep { get; private set; }
+        public virtual string Logradouro { get; private set; }
+        public virtual int Numero { get; private set; }
+        public virtual int? Complemento { get; private set; }
+        public virtual string Bairro { get; private set; }
+        public virtual string Cidade { get; private set; }
+        public virtual string Estado { get; private set; }
     }
 }

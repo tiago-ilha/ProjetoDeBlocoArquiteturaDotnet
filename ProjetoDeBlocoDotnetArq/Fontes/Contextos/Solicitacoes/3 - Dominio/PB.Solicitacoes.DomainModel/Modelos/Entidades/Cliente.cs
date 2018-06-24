@@ -1,25 +1,36 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using PB.Solicitacoes.DomainModel.ObjetosDeValor;
 
 namespace PB.Solicitacoes.DomainModel.Modelos.Entidades
 {
-    public abstract class Cliente
+    public class Cliente : Entidade
     {
-        protected Cliente() { }
+        // private IList<Endereco> _enderecos;
 
-        protected Cliente(Nome nome,Documento documento, Endereco endereco) : this()
+        public Cliente()
         {
-            Id = Guid.NewGuid();
-            Nome = nome;
-            Documento = documento;
-            Endereco = endereco;
+            
+            // _enderecos = new List<Endereco>();
         }
 
-        public Guid Id { get; protected set; }
-        public Nome Nome { get; protected set; }
+        public Cliente(Nome nomeCompleto, string documento)
+        {
+            Nome = nomeCompleto;
+            Documento = documento;
+        }
 
-        public Documento Documento { get; protected set; }
+        public virtual Nome Nome { get; protected set; }
+        public virtual string Documento { get; protected set; }
 
-        public Endereco Endereco { get; protected set; }
+        public ICollection<SolicitacaoDoCliente> Solicitacoes { get; private set; }
+
+        // public virtual ICollection<Endereco> Enderecos => _enderecos.ToArray();
+
+        // public virtual void AdicionarEndereco(Endereco endereco)
+        // {
+        //     _enderecos.Add(endereco);
+        // }
     }
 }

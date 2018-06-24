@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Class1.cs" />
-    <Compile Remove="ObjetosDeValor\NomeCompleto.cs" />
-    <Compile Remove="Modelos\Servicos\ServicoSolicitacaoDeCliente.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Modelos\" />
     <Folder Include="ObjetosDeValor\" />
     <Folder Include="Modelos\Entidades\" />

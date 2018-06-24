@@ -4,25 +4,23 @@ using PB.Solicitacoes.DomainModel.Modelos.Enums;
 
 namespace PB.Solicitacoes.DomainModel.Modelos
 {
-    public class SolicitacaoDoCliente
+    public class SolicitacaoDoCliente : Agregador
     {
         protected SolicitacaoDoCliente() { }
 
         public SolicitacaoDoCliente(Cliente cliente) : this()
         {
-            Cliente = cliente;
+            this.Cliente = cliente;
 
             this.Solicitar();
         }
 
-        public Guid Id { get; private set; }
         public Cliente Cliente { get; private set; }
-
-        public TipoSituacaoSolicitacaoEnum Situacao { get; private set; }
 
         public DateTime? DataDeSolicitacao { get; private set; }
         public DateTime? DataDeAnalise { get; private set; }
         public DateTime? DataDeDefericao { get; private set; }
+        public TipoSituacaoSolicitacaoEnum Situacao { get; private set; }
 
         public void Solicitar()
         {

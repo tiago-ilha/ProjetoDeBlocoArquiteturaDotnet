@@ -15,7 +15,6 @@
     <ProjectReference Include="..\..\3 - Dominio\PB.Solicitacoes.DomainModel\PB.Solicitacoes.DomainModel.csproj"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.1"/>
+    <PackageReference Include="FluentNHibernate" Version="2.1.2"/>
   </ItemGroup>
 </Project>
