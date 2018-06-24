@@ -1,6 +1,6 @@
 using System;
 
-namespace WebSolicitacao.Models
+namespace WebBanco.Models
 {
     public class ErrorViewModel
     {

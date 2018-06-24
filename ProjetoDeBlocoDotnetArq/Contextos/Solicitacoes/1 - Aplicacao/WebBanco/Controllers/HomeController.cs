@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebSolicitacao.Models;
+using WebBanco.Models;
 
-namespace WebSolicitacao.Controllers
+namespace WebBanco.Controllers
 {
     public class HomeController : Controller
     {
