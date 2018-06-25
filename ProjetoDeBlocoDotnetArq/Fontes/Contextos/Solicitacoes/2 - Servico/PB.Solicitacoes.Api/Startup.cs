@@ -80,7 +80,7 @@ namespace PB.Solicitacoes.Api
             var sessionProvider = new SessionProvider(Configuration.GetConnectionString("ProjetoDeBloco.Solicitacoes"));
 
             _container.Register(() => sessionProvider.SessionFactory, Lifestyle.Singleton);
-            _container.Register<NHibernate.ISession>(() => _container.GetInstance<ISessionFactory>().OpenSession(), Lifestyle.Scoped);
+            _container.Register<NHibernate.ISession>(() => _container.GetInstance<ISessionFactory>().OpenSession(), Lifestyle.Singleton);
 
             //var fabrica = FabricaDeSessaoNhibernate.ConfigurarFabricaDeSessao(Configuration.GetConnectionString("ProjetoDeBloco.Solicitacoes"));
 

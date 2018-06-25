@@ -25,20 +25,11 @@ namespace PB.Solicitacoes.Api.Solicitacoes.Tarefas
 
             if(modelo.TipoCliente == "PF")
             {
-                var nome = new Nome(modelo.NomeCompleto);
-
-                cliente = new PessoaFisica(
-                    nome, 
-                    modelo.Documento);
+                cliente = PreencherClientePessoaFisica(modelo);
             }
             else if(modelo.TipoCliente == "PJ")
             {
-                var razaoSocial = new Nome(modelo.NomeCompleto);
-
-                cliente = new PessoaJuridica(
-                    razaoSocial,
-                    modelo.Documento
-                );
+                cliente = PreencherClientePessoaJuridica(modelo);
             }
             else 
                 cliente = null;
@@ -55,6 +46,30 @@ namespace PB.Solicitacoes.Api.Solicitacoes.Tarefas
 
                 return Json(new {});
             }
+        }
+
+        private Cliente PreencherClientePessoaFisica(RegistrarSolicitacaoViewModel modelo)
+        {
+            Cliente cliente;
+            var nome = new Nome(modelo.NomeCompleto);
+
+            cliente = new PessoaFisica(
+                nome,
+                modelo.Documento);
+            return cliente;
+        }
+
+        private Cliente PreencherClientePessoaJuridica(RegistrarSolicitacaoViewModel modelo)
+        {
+            Cliente cliente;
+            var razaoSocial = new Nome(modelo.NomeCompleto);
+
+            cliente = new PessoaJuridica(
+                razaoSocial,
+                modelo.Documento
+            );
+
+            return cliente;
         }
     }
 }
