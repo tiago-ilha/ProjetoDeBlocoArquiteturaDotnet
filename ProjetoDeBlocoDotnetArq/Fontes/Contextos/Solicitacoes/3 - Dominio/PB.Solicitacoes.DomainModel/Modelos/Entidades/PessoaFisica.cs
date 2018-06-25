@@ -6,7 +6,7 @@ namespace PB.Solicitacoes.DomainModel.Modelos.Entidades
 {
     public class PessoaFisica : Cliente
     {
-        protected PessoaFisica(Nome nomeCompleto, string documento) : base(nomeCompleto, documento)
+        public PessoaFisica(Nome nomeCompleto, string documento) : base(nomeCompleto, documento)
         {
         }
 

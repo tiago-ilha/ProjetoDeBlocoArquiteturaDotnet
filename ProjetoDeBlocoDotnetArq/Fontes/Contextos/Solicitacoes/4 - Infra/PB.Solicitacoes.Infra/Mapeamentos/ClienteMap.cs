@@ -13,10 +13,12 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
             Id(x => x.Id).Column("IdCliente").Not.Nullable().GeneratedBy.Identity();
 
              Component<Nome>(propriedade => propriedade.Nome, mapeamento =>{
-                 mapeamento.Map(x => x.NomeCompleto);
+                 mapeamento.Map(x => x.NomeCompleto).Length(100);
              });
 
-             Map(x => x.Documento).Column("Documento").Not.Nullable();
+             Map(x => x.Documento).Column("Documento").Length(14).Not.Nullable().Unique();
+
+             HasOne(x => x.Solicitacao).Constrained();
         }
     }
 }

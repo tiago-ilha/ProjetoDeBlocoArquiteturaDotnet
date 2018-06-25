@@ -5,46 +5,61 @@ using System.Linq;
 using System.Reflection;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.AcceptanceCriteria;
 using FluentNHibernate.Conventions.Helpers;
-using FluentNHibernate.Conventions.Instances;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Event;
-using NHibernate.Tool.hbm2ddl;
+using PB.Solicitacoes.DomainModel;
 
 namespace PB.Solicitacoes.Infra.Configuracoes
 {
     public class FabricaDeSessaoNhibernate
     {
-        private static ISessionFactory fabrica;
+        private static ISessionFactory _fabrica;
+        private static string _connectionString;
 
-        public static ISession AbrirNovaSessao()
+        public FabricaDeSessaoNhibernate(string connectionString) => _connectionString = connectionString;
+
+        public static ISessionFactory FabricaDeSesso
         {
-            return fabrica.OpenSession();
+            get { return _fabrica ?? (_fabrica = Iniciar()); }
         }
 
-        public static void Init(string stringDeConexao)
+        private static ISessionFactory Iniciar()
         {
-            fabrica = ConstruirFabricaDeSessao(stringDeConexao);
-            // EventosDeDominio.Iniciar();
+            _fabrica = ConstruirFabricaDeSessao(_connectionString);
+            EventosDeDominio.Iniciar();
+
+            return _fabrica;
         }
 
-        private static ISessionFactory ConstruirFabricaDeSessao(string stringDeConexao)
+        private static ISessionFactory ConstruirFabricaDeSessao(string connectionString)
         {
             FluentConfiguration configuracaoFluente = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(stringDeConexao))
-                .Mappings(ConfiguraConvencoes());
-            // .ExposeConfiguration(NewMethod());
+                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString))
+                .Mappings(m => m.FluentMappings
+                                .Conventions.Add(ForeignKey.EndsWith("ID"),
+                                    ConventionBuilder.Property
+                                        .When(criterio => criterio.Expect(x => x.Nullable, Is.Not.Set), x => x.Not.Nullable()))
+                                .Conventions.Add<TableNameConvention>())
+                .ExposeConfiguration(
+                    x =>
+                    {
+                        x.EventListeners.PostCommitUpdateEventListeners =
+                        new IPostUpdateEventListener[] { new EventListener() };
 
-            ConfigurarMapeamentos(configuracaoFluente);
+                        x.EventListeners.PostCommitInsertEventListeners =
+                            new IPostInsertEventListener[] { new EventListener() };
 
-            return configuracaoFluente.BuildSessionFactory();
-        }
+                        x.EventListeners.PostCommitDeleteEventListeners =
+                            new IPostDeleteEventListener[] { new EventListener() };
 
-        private static void ConfigurarMapeamentos(FluentConfiguration configuracaoFluente)
-        {
+                        x.EventListeners.PostCollectionUpdateEventListeners =
+                            new IPostCollectionUpdateEventListener[] { new EventListener() };
+                    }
+                );
+
             configuracaoFluente.Mappings(_ =>
             {
                 ListarTodosOsBinarios().ForEach(assembly =>
@@ -52,34 +67,8 @@ namespace PB.Solicitacoes.Infra.Configuracoes
                     _.FluentMappings.AddFromAssembly(Assembly.Load(assembly.GetName()));
                 });
             });
-        }
 
-        private static Action<MappingConfiguration> ConfiguraConvencoes()
-        {
-            return m => m.FluentMappings
-                                .Conventions.Add(
-                                    ForeignKey.EndsWith("ID"),
-                                    ConventionBuilder.Property
-                                        .When(criterio => criterio.Expect(x => x.Nullable, Is.Not.Set), x => x.Not.Nullable()))
-                                .Conventions.Add<TableNameConvention>();
-        }
-
-        private static Action<Configuration> NewMethod()
-        {
-            return x =>
-            {
-                x.EventListeners.PostCommitUpdateEventListeners =
-                new IPostUpdateEventListener[] { new EventListener() };
-
-                x.EventListeners.PostCommitInsertEventListeners =
-                    new IPostInsertEventListener[] { new EventListener() };
-
-                x.EventListeners.PostCommitDeleteEventListeners =
-                    new IPostDeleteEventListener[] { new EventListener() };
-
-                x.EventListeners.PostCollectionUpdateEventListeners =
-                    new IPostCollectionUpdateEventListener[] { new EventListener() };
-            };
+            return configuracaoFluente.BuildSessionFactory();
         }
 
         private static List<Assembly> ListarTodosOsBinarios()

@@ -15,26 +15,26 @@ namespace PB.Solicitacoes.DomainModel.Modelos
             this.Solicitar();
         }
 
-        public Cliente Cliente { get; private set; }
+        public virtual Cliente Cliente { get; private set; }
 
-        public DateTime? DataDeSolicitacao { get; private set; }
-        public DateTime? DataDeAnalise { get; private set; }
-        public DateTime? DataDeDefericao { get; private set; }
-        public TipoSituacaoSolicitacaoEnum Situacao { get; private set; }
+        public virtual DateTime? DataDeSolicitacao { get; private set; }
+        public virtual DateTime? DataDeAnalise { get; private set; }
+        public virtual DateTime? DataDeDefericao { get; private set; }
+        public virtual TipoSituacaoSolicitacaoEnum Situacao { get; private set; }
 
-        public void Solicitar()
+        public virtual void Solicitar()
         {
             this.DataDeSolicitacao = DateTime.Now;
             this.Situacao = TipoSituacaoSolicitacaoEnum.Solicitado;
         }
 
-        public void Analisar()
+        public virtual void Analisar()
         {
             this.DataDeAnalise = DateTime.Now;
             this.Situacao = TipoSituacaoSolicitacaoEnum.EmAnalise;
         }
 
-        public void Deferir()
+        public virtual void Deferir()
         {
             this.DataDeDefericao = DateTime.Now;
             this.Situacao = TipoSituacaoSolicitacaoEnum.Deferido;

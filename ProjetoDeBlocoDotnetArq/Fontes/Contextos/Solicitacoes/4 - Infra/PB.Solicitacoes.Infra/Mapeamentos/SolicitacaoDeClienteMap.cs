@@ -18,6 +18,7 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 
             Map(x => x.Situacao).CustomType<TipoSituacaoSolicitacaoEnum>();
 
+            HasOne(x => x.Cliente).Cascade.All();
         }
     }
 }
