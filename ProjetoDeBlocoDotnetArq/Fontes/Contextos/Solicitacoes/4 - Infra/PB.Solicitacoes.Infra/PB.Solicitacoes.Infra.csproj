@@ -3,18 +3,20 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Class1.cs"/>
-    <Compile Remove="Mapeamentos\SolicitacaoDeClienteMap.cs"/>
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="Mapeamentos\SolicitacaoDeClienteMap.cs" />
+    <Compile Remove="Configuracoes\SessionFactoryProvider.cs" />
+    <Compile Remove="Configuracoes\FabricaDeSessaoNhibernate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Configuracoes\"/>
-    <Folder Include="Mapeamentos\"/>
-    <Folder Include="Repositorios\"/>
+    <Folder Include="Configuracoes\" />
+    <Folder Include="Mapeamentos\" />
+    <Folder Include="Repositorios\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\3 - Dominio\PB.Solicitacoes.DomainModel\PB.Solicitacoes.DomainModel.csproj"/>
+    <ProjectReference Include="..\..\3 - Dominio\PB.Solicitacoes.DomainModel\PB.Solicitacoes.DomainModel.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FluentNHibernate" Version="2.1.2"/>
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
   </ItemGroup>
 </Project>
