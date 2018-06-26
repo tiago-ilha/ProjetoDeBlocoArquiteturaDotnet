@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4C5949D-5EC8-4648-9C9E-44B79D39222E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PB.Solicitacoes.DomainModel</RootNamespace>
+    <AssemblyName>PB.Solicitacoes.DomainModel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\Cliente.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\ContaCorrente.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\ContaEletronica.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\ContaSalario.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\ContaEspecialEletronica.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\ContaPoupanca.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\PessoaFisica.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\PessoaJuridica.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\Produto.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Enums\TipoSituacaoSolicitacaoEnum.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Fabrica\GerarProdutoFabrica.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Interfaces\PossuiLimite.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Repositorios\SolicitacaoDeClienteRepositorio.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoSolicitarCliente.cs" />
+    <Compile Include="ObjetosDeValor\SolicitacaoDeCliente.cs" />
+    <Compile Include="ObjetosDeValor\Documento.cs" />
+    <Compile Include="ObjetosDeValor\Endereco.cs" />
+    <Compile Include="ObjetosDeValor\Nome.cs" />
+    <Compile Include="ObjetosDeValor\RG.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Utilitario\Alfa.Core\Alfa.Core.csproj">
+      <Project>{bfcc6ddc-1549-4ac3-a98c-652bed8fab0e}</Project>
+      <Name>Alfa.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
