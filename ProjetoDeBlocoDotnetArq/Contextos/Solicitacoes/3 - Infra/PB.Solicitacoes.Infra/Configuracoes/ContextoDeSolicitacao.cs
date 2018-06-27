@@ -2,6 +2,7 @@
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Entidades;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Enums;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace PB.Solicitacoes.Infra.Configuracoes
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
+			modelBuilder.Types().Configure(x => x.ToTable(GetTableName(x.ClrType)));
+			modelBuilder.Properties<Guid>().Where(x => x.Name.StartsWith("Id")).Configure(x => x.IsKey().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity));
 			modelBuilder.ComplexType<TipoSituacaoSolicitacaoEnum>().Ignore(x => x.Valor);
 
 			//Fazendo o mapeamento com o banco de dados
@@ -50,6 +53,9 @@ namespace PB.Solicitacoes.Infra.Configuracoes
 			}
 		}
 
-		
+		private string GetTableName(Type type)
+		{
+			return type.Name;
+		}
 	}
 }

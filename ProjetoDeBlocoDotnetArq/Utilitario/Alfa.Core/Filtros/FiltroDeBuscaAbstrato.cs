@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Alfa.Core.Filtros
 {
-	public class FiltroDeBuscaAbstrato<TAgragador> : FiltroDeBusca where TAgragador : class
+	public abstract class FiltroDeBuscaAbstrato<TAgragador> : FiltroDeBusca where TAgragador : class
 	{
+		public abstract Expression<Func<TAgragador, bool>> AplicarFiltros();
 	}
 }

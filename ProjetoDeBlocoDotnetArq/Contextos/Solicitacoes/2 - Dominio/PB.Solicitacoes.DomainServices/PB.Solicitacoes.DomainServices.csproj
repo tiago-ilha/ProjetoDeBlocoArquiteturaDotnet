@@ -39,8 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelos\Solicitacoes\Fabrica\GerarProdutoFabricaImp.cs" />
-    <Compile Include="Modelos\Solicitacoes\Servicos\ServicoSolicitarClienteImp.cs" />
+    <Compile Include="Modelos\Solicitacoes\Servicos\ServicoCadastrarSolicitacaoClienteImp.cs" />
+    <Compile Include="Modelos\Solicitacoes\Servicos\ServicoDeferirSolicitacaoImp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

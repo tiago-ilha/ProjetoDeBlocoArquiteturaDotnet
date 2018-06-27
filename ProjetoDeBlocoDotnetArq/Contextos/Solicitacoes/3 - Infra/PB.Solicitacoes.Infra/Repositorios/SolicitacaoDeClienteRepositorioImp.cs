@@ -5,6 +5,7 @@ using PB.Solicitacoes.Infra.Configuracoes;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace PB.Solicitacoes.Infra.Repositorios
 {
@@ -17,17 +18,17 @@ namespace PB.Solicitacoes.Infra.Repositorios
 			_contexto = contexto;
 		}
 
-		public IEnumerable<SolicitacaoDeCliente> Listar(FiltroDeBusca filtro)
+		public IEnumerable<SolicitacaoDeCliente> Listar(FiltroDeBuscaAbstrato<SolicitacaoDeCliente> filtro)
 		{
-			throw new NotImplementedException();
+			return _contexto.Solicitacao.Include(x => x.Cliente).AsNoTracking().Where(filtro.AplicarFiltros());
 		}
 
-		public SolicitacaoDeCliente FiltrarPor(FiltroDeBusca filtro)
+		public SolicitacaoDeCliente FiltrarPor(FiltroDeBuscaAbstrato<SolicitacaoDeCliente> filtro)
 		{
-			throw new NotImplementedException();
+			return _contexto.Solicitacao.Include(x => x.Cliente).AsNoTracking().SingleOrDefault(filtro.AplicarFiltros());
 		}
 
-		public SolicitacaoDeCliente FiltroPor(Guid id)
+		public SolicitacaoDeCliente ObterPorId(Guid id)
 		{
 			return _contexto.Solicitacao.Find(id);
 		}
@@ -41,11 +42,13 @@ namespace PB.Solicitacoes.Infra.Repositorios
 		public void Editar(SolicitacaoDeCliente entidade)
 		{
 			_contexto.Entry(entidade).State = EntityState.Modified;
+			_contexto.SaveChanges();
 		}
 
 		public void Remover(SolicitacaoDeCliente entidade)
 		{
 			_contexto.Solicitacao.Remove(entidade);
+			_contexto.SaveChanges();
 		}
 	}
 }

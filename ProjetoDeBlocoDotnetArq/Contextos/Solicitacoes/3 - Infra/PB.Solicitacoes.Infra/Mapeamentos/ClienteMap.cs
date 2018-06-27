@@ -8,10 +8,6 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 	{
 		public ClienteMap()
 		{
-			ToTable("Cliente");
-
-			HasKey(x => x.SoliclitacaoClienteId);
-
 			Property(x => x.Nome.NomeCompleto).HasColumnName("NomeCompleto")
 				.HasColumnType("varchar")
 				.HasMaxLength(50)

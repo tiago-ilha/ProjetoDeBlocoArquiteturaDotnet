@@ -7,8 +7,6 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 	{
 		public PessoaFisicaMap()
 		{
-			ToTable("PessoaFisica");
-
 			Property(x => x.RG.NumeroDocumento)
 				.HasColumnName("RG")
 				.HasMaxLength(20)

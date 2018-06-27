@@ -6,9 +6,9 @@ namespace PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Repositorio
 {
 	public interface SolicitacaoDeClienteRepositorio
 	{
-		IEnumerable<SolicitacaoDeCliente> Listar(FiltroDeBusca filtro);
-		SolicitacaoDeCliente FiltrarPor(FiltroDeBusca filtro);
-		SolicitacaoDeCliente FiltroPor(Guid id);
+		IEnumerable<SolicitacaoDeCliente> Listar(FiltroDeBuscaAbstrato<SolicitacaoDeCliente> filtro);
+		SolicitacaoDeCliente FiltrarPor(FiltroDeBuscaAbstrato<SolicitacaoDeCliente> filtro);
+		SolicitacaoDeCliente ObterPorId(Guid id);
 		void Salvar(SolicitacaoDeCliente entidade);
 		void Editar(SolicitacaoDeCliente entidade);
 		void Remover(SolicitacaoDeCliente entidade);

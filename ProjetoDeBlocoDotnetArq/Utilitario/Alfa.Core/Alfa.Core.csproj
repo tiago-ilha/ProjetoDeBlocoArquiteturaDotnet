@@ -43,6 +43,7 @@
     <Compile Include="Filtros\FiltroDeBusca.cs" />
     <Compile Include="Filtros\FiltroDeBuscaAbstrato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\Servico.cs" />
     <Compile Include="Validacoes\INotificar.cs" />
     <Compile Include="Validacoes\Notificacao.cs" />
     <Compile Include="Validacoes\Notificar.cs" />

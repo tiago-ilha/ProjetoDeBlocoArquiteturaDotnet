@@ -49,11 +49,12 @@
     <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\PessoaJuridica.cs" />
     <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\Produto.cs" />
     <Compile Include="Modelos\SolicitacoesDeClientes\Enums\TipoSituacaoSolicitacaoEnum.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Fabrica\GerarProdutoFabrica.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Filtros\FiltroDeListagemDeSolicitacoes.cs" />
     <Compile Include="Modelos\SolicitacoesDeClientes\Interfaces\PossuiLimite.cs" />
     <Compile Include="Modelos\SolicitacoesDeClientes\Repositorios\SolicitacaoDeClienteRepositorio.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoSolicitarCliente.cs" />
-    <Compile Include="ObjetosDeValor\SolicitacaoDeCliente.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoCadastrarSolicitacaoCliente.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoDeferirSolicitacao.cs" />
+    <Compile Include="Modelos\SolicitacoesDeClientes\SolicitacaoDeCliente.cs" />
     <Compile Include="ObjetosDeValor\Documento.cs" />
     <Compile Include="ObjetosDeValor\Endereco.cs" />
     <Compile Include="ObjetosDeValor\Nome.cs" />
@@ -66,6 +67,7 @@
       <Name>Alfa.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

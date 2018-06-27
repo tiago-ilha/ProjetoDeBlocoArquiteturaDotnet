@@ -8,11 +8,6 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 	{
 		public SolicitacaoDeClienteMap()
 		{
-			ToTable("SolicitacaoDeCliente");
-
-			HasKey(x => x.Id);
-			Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
 			Property(x => x.DataDeSolicitacao);
 			Property(x => x.DataDeAnalise);
 			Property(x => x.DataDeDefericao);

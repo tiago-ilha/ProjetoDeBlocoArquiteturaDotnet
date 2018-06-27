@@ -11,7 +11,7 @@ namespace PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Entidades
 			this.Documento = documento;
 		}
 
-		public Guid SoliclitacaoClienteId { get; private set; }
+		public Guid IdSoliclitacaoCliente { get; private set; }
 		public Nome Nome { get; private set; }
 		public Documento Documento { get; private set; }
 

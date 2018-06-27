@@ -1,23 +1,26 @@
 ﻿using Alfa.Core.Validacoes;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Repositorios;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Servicos;
 using System;
 
 namespace PB.Solicitacoes.DomainServices.Modelos.Solicitacoes.Servicos
 {
-	public class ServicoSolicitarClienteImp : Notificar,  ServicoSolicitarCliente
+	public class ServicoDeferirSolicitacaoImp : Notificar, ServicoDeferirSolicitacao
 	{
-		private readonly SolicitacaoDeClienteRepositorio _repositorio;
+		private SolicitacaoDeClienteRepositorio _repositorio;
 
-		public ServicoSolicitarClienteImp(SolicitacaoDeClienteRepositorio repositorio)
+		public ServicoDeferirSolicitacaoImp(SolicitacaoDeClienteRepositorio repositorio)
 		{
 			_repositorio = repositorio;
 		}
 
-		public void Executar(SolicitacaoDeCliente solicitacao)
+		public void Executar(Guid idSolicitacao)
 		{
-			if(!solicitacao.EstaValido)
+			var solicitacao = _repositorio.ObterPorId(idSolicitacao);
+
+			solicitacao.Deferir();
+
+			if (!solicitacao.EstaValido)
 			{
 				MesclarNotificacoes(solicitacao);
 				return;

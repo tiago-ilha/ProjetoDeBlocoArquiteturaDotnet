@@ -12,7 +12,6 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 	{
 		public PessoaJuridicaMap()
 		{
-			ToTable("PessoaJuridica");
 		}
 	}
 }
