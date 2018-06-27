@@ -3,13 +3,13 @@ using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Repositorios;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Servicos;
 using System;
 
-namespace PB.Solicitacoes.DomainServices.Modelos.Solicitacoes.Servicos
+namespace PB.Solicitacoes.DomainServices.Modelos.SolicitacoesDeClientes.Servicos
 {
-	public class ServicoDeferirSolicitacaoImp : Notificar, ServicoDeferirSolicitacao
+	public class ServicoDeferirSolicitacaoClienteImp : Notificar, ServicoDeferirSolicitacaoCliente
 	{
 		private SolicitacaoDeClienteRepositorio _repositorio;
 
-		public ServicoDeferirSolicitacaoImp(SolicitacaoDeClienteRepositorio repositorio)
+		public ServicoDeferirSolicitacaoClienteImp(SolicitacaoDeClienteRepositorio repositorio)
 		{
 			_repositorio = repositorio;
 		}

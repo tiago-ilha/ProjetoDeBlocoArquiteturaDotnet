@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Interfaces
+namespace PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeProdutos.Interfaces
 {
 	public interface PossuiLimite
 	{

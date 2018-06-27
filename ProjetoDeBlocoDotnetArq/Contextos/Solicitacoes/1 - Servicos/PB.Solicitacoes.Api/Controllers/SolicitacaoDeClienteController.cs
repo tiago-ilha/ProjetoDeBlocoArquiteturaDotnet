@@ -7,7 +7,7 @@ using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Filtros;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Repositorios;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Servicos;
 using PB.Solicitacoes.DomainModel.ObjetosDeValor;
-using PB.Solicitacoes.DomainServices.Modelos.Solicitacoes.Servicos;
+using PB.Solicitacoes.DomainServices.Modelos.SolicitacoesDeClientes.Servicos;
 using PB.Solicitacoes.Infra.Configuracoes;
 using PB.Solicitacoes.Infra.Repositorios;
 using System;
@@ -19,21 +19,21 @@ using System.Web.Http;
 namespace PB.Solicitacoes.Api.Controllers
 {
 	[RoutePrefix("api/solicitacao")]
-	public class SolicitacoesController : ApiController
+	public class SolicitacaoDeClienteController : ApiController
 	{
 		private ContextoDeSolicitacao _contexto;
 		private SolicitacaoDeClienteRepositorio _repositorio;
 
 		private ServicoCadastrarSolicitacaoCliente _servicoSolicitacao;
-		private ServicoDeferirSolicitacao _servicoDeferir;
+		private ServicoDeferirSolicitacaoCliente _servicoDeferir;
 
-		public SolicitacoesController()
+		public SolicitacaoDeClienteController()
 		{
 			_contexto = new ContextoDeSolicitacao();
-			_repositorio = new SolicitacaoDeClienteRepositorioImp(_contexto);
+			//_repositorio = new SolicitacaoDeClienteRepositorioImp(_contexto);
 			_servicoSolicitacao = new ServicoCadastrarSolicitacaoClienteImp(_repositorio);
 
-			_servicoDeferir = new ServicoDeferirSolicitacaoImp(_repositorio);
+			_servicoDeferir = new ServicoDeferirSolicitacaoClienteImp(_repositorio);
 		}
 
 		// GET: api/Solicitacoes

@@ -52,11 +52,14 @@
     <Compile Include="Configuracoes\ContextoDeSolicitacao.cs" />
     <Compile Include="IMapeamento.cs" />
     <Compile Include="Mapeamentos\ClienteMap.cs" />
+    <Compile Include="Mapeamentos\ContaCorrenteMap.cs" />
+    <Compile Include="Mapeamentos\ContaPoupancaMap.cs" />
     <Compile Include="Mapeamentos\ObjetosDeValor\EnderecoMap.cs" />
     <Compile Include="Mapeamentos\PessoaFisicaMap.cs" />
     <Compile Include="Mapeamentos\PessoaJuridicaMap.cs" />
-    <Compile Include="Mapeamentos\ProdutoMap.cs" />
     <Compile Include="Mapeamentos\SolicitacaoDeClienteMap.cs" />
+    <Compile Include="Mapeamentos\SolicitacaoDoProdutoMap.cs" />
+    <Compile Include="Mapeamentos\SolicitacaoMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\SolicitacaoDeClienteRepositorioImp.cs" />

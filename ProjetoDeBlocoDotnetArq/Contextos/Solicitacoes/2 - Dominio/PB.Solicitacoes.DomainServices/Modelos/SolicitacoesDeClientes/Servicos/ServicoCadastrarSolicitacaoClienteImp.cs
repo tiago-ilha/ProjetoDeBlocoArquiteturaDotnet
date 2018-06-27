@@ -3,9 +3,9 @@ using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Repositorios;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Servicos;
 
-namespace PB.Solicitacoes.DomainServices.Modelos.Solicitacoes.Servicos
+namespace PB.Solicitacoes.DomainServices.Modelos.SolicitacoesDeClientes.Servicos
 {
-	public class ServicoCadastrarSolicitacaoClienteImp : Notificar,  ServicoCadastrarSolicitacaoCliente
+	public class ServicoCadastrarSolicitacaoClienteImp : Notificar, ServicoCadastrarSolicitacaoCliente
 	{
 		private readonly SolicitacaoDeClienteRepositorio _repositorio;
 

@@ -15,7 +15,6 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 			Property(x => x.Situacao.Descricao).HasColumnName("Situacao").HasMaxLength(20);
 
 			HasRequired(x => x.Cliente).WithRequiredPrincipal(x => x.Solicitacao);
-			HasRequired(x => x.Produto).WithRequiredPrincipal(x => x.Solicitacao);
 		}
 	}
 }

@@ -1,6 +1,9 @@
-﻿using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes;
+﻿using PB.Solicitacoes.DomainModel.Enums;
+using PB.Solicitacoes.DomainModel.Modelos;
+using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes;
 using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Entidades;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Enums;
+using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeProdutos;
+using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeProdutos.Entidades;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
@@ -19,14 +22,23 @@ namespace PB.Solicitacoes.Infra.Configuracoes
 			Configuration.ProxyCreationEnabled = false;
 		}
 
-		public DbSet<SolicitacaoDeCliente> Solicitacao { get; set; }
-		public DbSet<Cliente> Cliente { get; set; }
-		public DbSet<PessoaFisica> PessoaFisica { get; set; }
-		public DbSet<PessoaJuridica> PessoaJuridica { get; set; }
+		public DbSet<Solicitacao> Solicitacao { get; set; }
 
-		public DbSet<Produto> Produto { get; set; }
+		#region Solicitação do cliente
 
-		public DbSet<ContaPoupanca> ContaPoupanca { get; set; }
+		//public DbSet<SolicitacaoDeCliente> SolicitacaoDeCliente { get; set; }		
+
+		//public DbSet<Cliente> Cliente { get; set; }
+		//public DbSet<PessoaFisica> PessoaFisica { get; set; }
+		//public DbSet<PessoaJuridica> PessoaJuridica { get; set; }
+
+		#endregion
+
+		#region Solicitação do produto
+
+		public DbSet<SolicitacaoDeProduto> SolicitacaoDeProduto { get; set; }
+
+		#endregion
 
 		//public DbSet<ProdutoDaSolicitacao> ProdutoDaSolicitacao { get; set; }
 
