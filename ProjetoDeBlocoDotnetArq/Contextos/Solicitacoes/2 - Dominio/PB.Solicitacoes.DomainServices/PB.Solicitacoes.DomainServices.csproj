@@ -39,10 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoCadastrarSolicitacaoClienteImp.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoDeferirSolicitacaoImp.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Servicos\ServicoCadastrarSolicitacaoProdutoImp.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Servicos\ServicoDeferirSolicitacaoProdutoImp.cs" />
+    <Compile Include="Modelos\Solicitacoes\ServicoCadastrarSolicitacaoImp.cs" />
+    <Compile Include="Modelos\Solicitacoes\ServicoDeferirSolicitacaoImp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

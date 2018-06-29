@@ -39,11 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Agregador.cs" />
+    <Compile Include="Base\Entidade.cs" />
     <Compile Include="Base\Enumerador.cs" />
     <Compile Include="Filtros\FiltroDeBusca.cs" />
     <Compile Include="Filtros\FiltroDeBuscaAbstrato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicos\Servico.cs" />
+    <Compile Include="Repositorios\IRepositorio.cs" />
+    <Compile Include="Servicos\IServico.cs" />
+    <Compile Include="Servicos\ServicoBase.cs" />
+    <Compile Include="Transacao\UnidadeDeTrabalho.cs" />
     <Compile Include="Validacoes\INotificar.cs" />
     <Compile Include="Validacoes\Notificacao.cs" />
     <Compile Include="Validacoes\Notificar.cs" />

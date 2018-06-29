@@ -40,32 +40,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\TipoSituacaoSolicitacaoEnum.cs" />
-    <Compile Include="Modelos\Solicitacao.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\Cliente.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\PessoaFisica.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Entidades\PessoaJuridica.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Filtros\FiltroDeListagemDeSolicitacoes.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Repositorios\SolicitacaoDeClienteRepositorio.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoCadastrarSolicitacaoCliente.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\Servicos\ServicoDeferirSolicitacaoCliente.cs" />
-    <Compile Include="Modelos\SolicitacoesDeClientes\SolicitacaoDeCliente.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Entidades\ContaCorrente.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Entidades\ContaEletronica.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Entidades\ContaEspecialEletronica.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Entidades\ContaPoupanca.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Entidades\ContaSalario.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Entidades\Produto.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Interfaces\PossuiLimite.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Servicos\ServicoCadastrarSolicitacaoProduto.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\Servicos\ServicoDeferirSolicitacaoProduto.cs" />
-    <Compile Include="Modelos\SolicitacoesDeProdutos\SolicitacaoDeProduto.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\Cliente.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\ContaCorrente.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\ContaEletronica.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\ContaEspecialEletronica.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\ContaPoupanca.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\ContaSalario.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\PessoaFisica.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\PessoaJuridica.cs" />
+    <Compile Include="Modelos\Solicitacoes\Entidades\Produto.cs" />
+    <Compile Include="Modelos\Solicitacoes\Filtros\FiltroDeListagemDeSolicitacoes.cs" />
+    <Compile Include="Modelos\Solicitacoes\Interfaces\PossuiLimite.cs" />
+    <Compile Include="Modelos\Solicitacoes\Queries\Comandos\ListagemDeSolicitacoesComando.cs" />
+    <Compile Include="Modelos\Solicitacoes\Repositorios\SolicitacaoRepositorio.cs" />
+    <Compile Include="Modelos\Solicitacoes\Servicos\ServicoCadastrarSolicitacao.cs" />
+    <Compile Include="Modelos\Solicitacoes\Servicos\ServicoDeferirSolicitacao.cs" />
+    <Compile Include="Modelos\Solicitacoes\Solicitacao.cs" />
     <Compile Include="ObjetosDeValor\Documento.cs" />
     <Compile Include="ObjetosDeValor\Endereco.cs" />
     <Compile Include="ObjetosDeValor\Nome.cs" />
     <Compile Include="ObjetosDeValor\RG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicos\ServicoCadastrarSolicitacao.cs" />
-    <Compile Include="Servicos\ServicoDeferirSolicitacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Utilitario\Alfa.Core\Alfa.Core.csproj">
@@ -73,11 +68,7 @@
       <Name>Alfa.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modelos\SolicitacoesDeClientes\Enums\" />
-    <Folder Include="Modelos\SolicitacoesDeProdutos\Filtros\" />
-    <Folder Include="Modelos\SolicitacoesDeProdutos\Repositorios\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

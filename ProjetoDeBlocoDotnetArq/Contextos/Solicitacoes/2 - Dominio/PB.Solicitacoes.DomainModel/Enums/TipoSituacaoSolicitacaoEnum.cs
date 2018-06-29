@@ -1,9 +1,4 @@
 ﻿using Alfa.Core.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PB.Solicitacoes.DomainModel.Enums
 {
@@ -11,9 +6,9 @@ namespace PB.Solicitacoes.DomainModel.Enums
 	{
 		public static TipoSituacaoSolicitacaoEnum NaoInformado = new TipoSituacaoSolicitacaoEnum(0, "NaoInformado");
 
-		public static TipoSituacaoSolicitacaoEnum Solicitado = new TipoSituacaoSolicitacaoEnum(1, "Solicitado");
+		public static TipoSituacaoSolicitacaoEnum Rascunho = new TipoSituacaoSolicitacaoEnum(1, "Rascunho");
 
-		public static TipoSituacaoSolicitacaoEnum EmAnalise = new TipoSituacaoSolicitacaoEnum(2, "EmAnalise");
+		public static TipoSituacaoSolicitacaoEnum Solicitado = new TipoSituacaoSolicitacaoEnum(2, "Solicitado");
 
 		public static TipoSituacaoSolicitacaoEnum Deferido = new TipoSituacaoSolicitacaoEnum(3, "Deferido");
 

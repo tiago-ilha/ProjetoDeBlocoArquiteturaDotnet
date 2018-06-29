@@ -1,15 +1,14 @@
-﻿using Alfa.Core.Servicos;
+﻿using Alfa.Core.Base;
+using Alfa.Core.Servicos;
 using Alfa.Core.Validacoes;
 using PB.Solicitacoes.Api.Models;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Entidades;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Filtros;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Repositorios;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Servicos;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Filtros;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Repositorios;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Servicos;
 using PB.Solicitacoes.DomainModel.ObjetosDeValor;
-using PB.Solicitacoes.DomainServices.Modelos.SolicitacoesDeClientes.Servicos;
 using PB.Solicitacoes.Infra.Configuracoes;
-using PB.Solicitacoes.Infra.Repositorios;
 using System;
 using System.Linq;
 using System.Net;
@@ -21,31 +20,31 @@ namespace PB.Solicitacoes.Api.Controllers
 	[RoutePrefix("api/solicitacao")]
 	public class SolicitacaoDeClienteController : ApiController
 	{
-		private ContextoDeSolicitacao _contexto;
-		private SolicitacaoDeClienteRepositorio _repositorio;
+		private SolicitacaoRepositorio _repositorio;
 
-		private ServicoCadastrarSolicitacaoCliente _servicoSolicitacao;
-		private ServicoDeferirSolicitacaoCliente _servicoDeferir;
+		private ServicoCadastrarSolicitacao _servicoSolicitacao;
+		private ServicoDeferirSolicitacao _servicoDeferir;
 
-		public SolicitacaoDeClienteController()
+		public SolicitacaoDeClienteController(
+		SolicitacaoRepositorio repositorio,
+		ServicoCadastrarSolicitacao servicoSolicitacao,
+		ServicoDeferirSolicitacao servicoDeferir)
 		{
-			_contexto = new ContextoDeSolicitacao();
-			//_repositorio = new SolicitacaoDeClienteRepositorioImp(_contexto);
-			_servicoSolicitacao = new ServicoCadastrarSolicitacaoClienteImp(_repositorio);
-
-			_servicoDeferir = new ServicoDeferirSolicitacaoClienteImp(_repositorio);
+			this._repositorio = repositorio;
+			this._servicoSolicitacao = servicoSolicitacao;
+			this._servicoDeferir = servicoDeferir;
 		}
 
 		// GET: api/Solicitacoes
-		[HttpGet]
-		[Route("Listar")]
+		[HttpPost]
+		[Route("listar")]
 		public HttpResponseMessage Listar(FiltroDeListagemDeSolicitacoes filtro)
 		{
 			var response = new HttpResponseMessage();
 
 			var solicitacoes = _repositorio.Listar(filtro);
 
-			if (solicitacoes == null || solicitacoes.Count() > 0)
+			if (solicitacoes == null || solicitacoes.Count() == 0)
 			{
 				response = Request.CreateResponse(HttpStatusCode.BadRequest, new { estaValido = true, titulo = "Nenhuma solicitação foi encontrada" });
 			}
@@ -57,11 +56,13 @@ namespace PB.Solicitacoes.Api.Controllers
 			return response;
 		}
 
+	
+
 		[HttpPost]
 		[Route("pessoa-fisica")]
 		public HttpResponseMessage Solicitacar([FromBody]SolicitacaoDeClientePessoaFisicaFisicaViewModel modelo)
 		{
-			var response  = new HttpResponseMessage();
+			var response = new HttpResponseMessage();
 
 			var nome = new Nome(modelo.Nome);
 			var documento = new Documento(modelo.Documento);
@@ -84,49 +85,51 @@ namespace PB.Solicitacoes.Api.Controllers
 			return RegistrarSolicitacao(ref response, cliente);
 		}
 
-		[HttpGet]
-		[Route("analisar")]
-		public HttpResponseMessage Analisar(Guid idSolicitacao)
-		{
-			var response = new HttpResponseMessage();
+		//[HttpGet]
+		//[Route("analisar")]
+		//public HttpResponseMessage Analisar(Guid idSolicitacao)
+		//{
+		//	var response = new HttpResponseMessage();
 
-			var solicitacao = _repositorio.ObterPorId(idSolicitacao);
+		//	var solicitacao = _repositorio.ObterPorId(idSolicitacao);
 
-			if (solicitacao == null)
-			{
-				response = Request.CreateResponse(HttpStatusCode.BadRequest, new { estaValido = true, titulo = "Nenhuma solicitação foi encontrada" });
-			}
-			else
-			{
-				response = Request.CreateResponse(HttpStatusCode.OK, new { entidadeDeRetorno = solicitacao });
-			}
+		//	if (solicitacao == null)
+		//	{
+		//		response = Request.CreateResponse(HttpStatusCode.BadRequest, new { estaValido = true, titulo = "Nenhuma solicitação foi encontrada" });
+		//	}
+		//	else
+		//	{
+		//		response = Request.CreateResponse(HttpStatusCode.OK, new { entidadeDeRetorno = solicitacao });
+		//	}
 
-			return response;
-		}
+		//	return response;
+		//}
 
-		[HttpPost]
-		[Route("deferir")]
-		public HttpResponseMessage Deferir(Guid idSolicitacao)
-		{
-			var response = new HttpResponseMessage();
+		//[HttpPost]
+		//[Route("deferir")]
+		//public HttpResponseMessage Deferir(Guid idSolicitacao)
+		//{
+		//	var response = new HttpResponseMessage();
 
-			_servicoDeferir.Executar(idSolicitacao);
+		//	var solicitacao = _repositorio.ObterPorId(idSolicitacao);
 
-			return DefinirResposta(ref response, _servicoDeferir);
-		}
+		//	_servicoDeferir.Executar(solicitacao);
+
+		//	return DefinirResposta(ref response, _servicoDeferir);
+		//}
 
 		#region Métodos compartilhados
 
 		private HttpResponseMessage RegistrarSolicitacao(ref HttpResponseMessage response, Cliente cliente)
 		{
-			var solicitacao = new SolicitacaoDeCliente(cliente);
+			var solicitacao = new Solicitacao(cliente);
 
 			_servicoSolicitacao.Executar(solicitacao);
 
 			return DefinirResposta(ref response, _servicoSolicitacao);
 		}
 
-		private HttpResponseMessage DefinirResposta(ref HttpResponseMessage response, Servico servico)
+		private HttpResponseMessage DefinirResposta(ref HttpResponseMessage response, IServico<Solicitacao> servico)
 		{
 			var casoDeUso = (Notificar)servico;
 

@@ -1,4 +1,4 @@
-﻿using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Entidades;
+﻿using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades;
 using System.Data.Entity.ModelConfiguration;
 
 namespace PB.Solicitacoes.Infra.Mapeamentos

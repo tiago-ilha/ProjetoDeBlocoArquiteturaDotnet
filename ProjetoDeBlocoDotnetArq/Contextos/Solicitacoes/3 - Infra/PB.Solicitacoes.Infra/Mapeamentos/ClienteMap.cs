@@ -1,4 +1,4 @@
-﻿using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Entidades;
+﻿using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 

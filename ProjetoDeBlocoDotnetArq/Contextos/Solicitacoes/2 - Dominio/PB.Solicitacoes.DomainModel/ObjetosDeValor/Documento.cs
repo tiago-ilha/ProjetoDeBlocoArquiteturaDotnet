@@ -8,13 +8,13 @@ namespace PB.Solicitacoes.DomainModel.ObjetosDeValor
 {
 	public class Documento
 	{
-		protected Documento() { }
+		internal Documento() { }
 
 		public Documento(string numeroDocumento)
 		{
 			this.NumeroDocumento = numeroDocumento;
 		}
 
-		public string NumeroDocumento { get; private set; }
+		public string NumeroDocumento { get; set; }
 	}
 }

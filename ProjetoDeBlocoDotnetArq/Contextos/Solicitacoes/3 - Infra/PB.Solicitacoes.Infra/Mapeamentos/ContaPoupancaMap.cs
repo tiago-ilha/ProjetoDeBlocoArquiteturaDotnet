@@ -1,4 +1,4 @@
-﻿using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeProdutos.Entidades;
+﻿using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades;
 using System.Data.Entity.ModelConfiguration;
 
 namespace PB.Solicitacoes.Infra.Mapeamentos
@@ -7,6 +7,7 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 	{
 		public ContaPoupancaMap()
 		{
+
 		}
 	}
 }

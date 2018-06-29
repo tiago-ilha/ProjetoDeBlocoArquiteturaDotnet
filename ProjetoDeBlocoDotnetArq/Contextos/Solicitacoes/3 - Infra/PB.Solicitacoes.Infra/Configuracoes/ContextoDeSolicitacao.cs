@@ -1,13 +1,12 @@
 ﻿using PB.Solicitacoes.DomainModel.Enums;
 using PB.Solicitacoes.DomainModel.Modelos;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeClientes.Entidades;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeProdutos;
-using PB.Solicitacoes.DomainModel.Modelos.SolicitacoesDeProdutos.Entidades;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Reflection;
 
@@ -24,29 +23,19 @@ namespace PB.Solicitacoes.Infra.Configuracoes
 
 		public DbSet<Solicitacao> Solicitacao { get; set; }
 
-		#region Solicitação do cliente
+		public DbSet<Cliente> Cliente { get; set; }
+		public DbSet<PessoaFisica> PessoaFisica { get; set; }
+		public DbSet<PessoaJuridica> PessoaJuridica { get; set; }
 
-		//public DbSet<SolicitacaoDeCliente> SolicitacaoDeCliente { get; set; }		
-
-		//public DbSet<Cliente> Cliente { get; set; }
-		//public DbSet<PessoaFisica> PessoaFisica { get; set; }
-		//public DbSet<PessoaJuridica> PessoaJuridica { get; set; }
-
-		#endregion
-
-		#region Solicitação do produto
-
-		public DbSet<SolicitacaoDeProduto> SolicitacaoDeProduto { get; set; }
-
-		#endregion
-
-		//public DbSet<ProdutoDaSolicitacao> ProdutoDaSolicitacao { get; set; }
+		public DbSet<Produto> Produto { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Types().Configure(x => x.ToTable(GetTableName(x.ClrType)));
 			modelBuilder.Properties<Guid>().Where(x => x.Name.StartsWith("Id")).Configure(x => x.IsKey().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity));
+
 			modelBuilder.ComplexType<TipoSituacaoSolicitacaoEnum>().Ignore(x => x.Valor);
+			modelBuilder.Types<Solicitacao>().Configure(x => x.Property(m => m.Situacao.Descricao).HasColumnName("Situacao").HasMaxLength(30));
 
 			//Fazendo o mapeamento com o banco de dados
 			//Pega todas as classes que estão implementando a interface IMapping
@@ -63,6 +52,13 @@ namespace PB.Solicitacoes.Infra.Configuracoes
 				dynamic mappingClass = Activator.CreateInstance(mapping);
 				modelBuilder.Configurations.Add(mappingClass);
 			}
+		}
+
+		public virtual void MudarEstadoDoObjeto(object model, EntityState state)
+		{
+			//Aqui trocamos o estado do objeto, 
+			//facilita quando temos alterações e exclusões
+			((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.ChangeObjectState(model, state);
 		}
 
 		private string GetTableName(Type type)

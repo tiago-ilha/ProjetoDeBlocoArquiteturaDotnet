@@ -57,12 +57,13 @@
     <Compile Include="Mapeamentos\ObjetosDeValor\EnderecoMap.cs" />
     <Compile Include="Mapeamentos\PessoaFisicaMap.cs" />
     <Compile Include="Mapeamentos\PessoaJuridicaMap.cs" />
-    <Compile Include="Mapeamentos\SolicitacaoDeClienteMap.cs" />
-    <Compile Include="Mapeamentos\SolicitacaoDoProdutoMap.cs" />
+    <Compile Include="Mapeamentos\ProdutoMap.cs" />
     <Compile Include="Mapeamentos\SolicitacaoMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\SolicitacaoDeClienteRepositorioImp.cs" />
+    <Compile Include="Repositorios\Repositorio.cs" />
+    <Compile Include="Repositorios\SolicitacaoRepositorioImp.cs" />
+    <Compile Include="Transacao\UnidadeDeTrabalhoImp.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Utilitario\Alfa.Core\Alfa.Core.csproj">
@@ -78,9 +79,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mapeamentos\Enumeradores\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

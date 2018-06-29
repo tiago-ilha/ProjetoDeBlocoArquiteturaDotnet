@@ -7,7 +7,7 @@ namespace Alfa.Core.Base
 {
 	public abstract class Enumerador : IComparable
 	{
-		protected Enumerador()
+		internal Enumerador()
 		{
 		}
 
@@ -17,8 +17,8 @@ namespace Alfa.Core.Base
 			Descricao = descricao;
 		}
 
-		public int Valor { get; private set; }
-		public string Descricao { get; private set; }
+		public int Valor { get; set; }
+		public string Descricao { get; set; }
 
 		public override string ToString()
 		{

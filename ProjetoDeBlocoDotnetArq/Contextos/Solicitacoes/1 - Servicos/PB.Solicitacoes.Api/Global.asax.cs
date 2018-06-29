@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PB.Solicitacoes.Api.App_Start;
+using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Repositorios;
+using PB.Solicitacoes.DomainServices.Modelos.Solicitacoes;
+using PB.Solicitacoes.Infra.Configuracoes;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -17,7 +18,9 @@ namespace PB.Solicitacoes.Api
 			GlobalConfiguration.Configure(WebApiConfig.Register);
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
-			BundleConfig.RegisterBundles(BundleTable.Bundles);
+			BundleConfig.RegisterBundles(BundleTable.Bundles);		
+
+			SimpleInjectorWebApiInitializer.Initialize();
 		}
 	}
 }

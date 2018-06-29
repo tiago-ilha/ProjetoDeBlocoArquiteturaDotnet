@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace PB.Solicitacoes.Infra.Mapeamentos
 {
-	public class PessoaJuridicaMap : EntityTypeConfiguration<PessoaJuridica>, IMapeamento
+	public class ProdutoMap : EntityTypeConfiguration<Produto>, IMapeamento
 	{
-		public PessoaJuridicaMap()
+		public ProdutoMap()
 		{
+			HasOptional(x => x.Solicitacao);
 		}
 	}
 }
