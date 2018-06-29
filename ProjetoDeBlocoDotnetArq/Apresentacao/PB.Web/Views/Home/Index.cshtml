@@ -1,4 +1,7 @@
-﻿@{
+﻿@page
+@model PB.Web.Models.SolicitacaoDeClientePessoaFisicaViewModel
+
+@{
 	ViewBag.Title = "Home Page";
 }
 
@@ -157,19 +160,14 @@
 					<h4 class="modal-title" id="myModalLabel">Informe os dados da solicitação</h4>
 				</div>
 				<div class="modal-body">
-					<!--
-						<div class="alert alert-success" role="alert">...</div>
-						<div class="alert alert-info" role="alert">...</div>
-						<div class="alert alert-warning" role="alert">...</div>
-						<div class="alert alert-danger" role="alert">...</div>
-					-->
+					<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 					<div class="form-group">
-						<label for="inputCliente">CPF</label>
-						<input type="text" class="form-control" id="inputCPF" placeholder="CPF">
+						<label for="inputCliente" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.Documento" class="control-label">CPF</label>
+						<input type="text" class="form-control" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.Documento" placeholder="CPF">
 					</div>
 					<div class="form-group">
-						<label for="inputCliente">Nome e sobrenome</label>
-						<input type="text" class="form-control" id="inputNome" placeholder="Nome Completo">
+						<label for="inputCliente" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.NomeCompleto">Nome e sobrenome</label>
+						<input type="text" class="form-control" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.NomeCompleto" placeholder="Nome Completo">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -296,11 +294,11 @@
 
 	<script>
 		$(document).ready(function () {
-			
+
 			$("#btn-cadastrar-cliente").click(function () {
 				alert("teste");
 			});
-			
+
 		});
 	</script>
 
