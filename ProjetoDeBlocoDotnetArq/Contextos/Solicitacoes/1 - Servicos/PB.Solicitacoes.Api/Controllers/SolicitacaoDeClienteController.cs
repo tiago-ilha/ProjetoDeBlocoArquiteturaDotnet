@@ -122,7 +122,8 @@ namespace PB.Solicitacoes.Api.Controllers
 
 		private HttpResponseMessage RegistrarSolicitacao(ref HttpResponseMessage response, Cliente cliente)
 		{
-			var solicitacao = new Solicitacao(cliente);
+			var solicitacao = new Solicitacao();
+			solicitacao.AdicionarCliente(cliente);
 
 			_servicoSolicitacao.Executar(solicitacao);
 

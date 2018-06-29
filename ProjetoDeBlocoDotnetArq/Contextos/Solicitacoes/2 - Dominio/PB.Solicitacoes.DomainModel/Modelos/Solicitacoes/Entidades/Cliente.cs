@@ -24,6 +24,7 @@ namespace PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades
 		public Nome Nome { get; set; }
 		public Documento Documento { get; set; }
 
+		public Guid IdSolicitacao { get; set; }
 		public Solicitacao Solicitacao { get; set; }
 	}
 }

@@ -11,8 +11,8 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 			Property(x => x.DataDeSolicitacao);
 			Property(x => x.DataDeDefericao);
 
-			HasRequired(x => x.Cliente).WithRequiredPrincipal(x => x.Solicitacao).WillCascadeOnDelete(true);
-			HasRequired(x => x.Produto);
+			HasMany(x => x.Clientes).WithRequired(x => x.Solicitacao).HasForeignKey(x => x.IdSolicitacao).WillCascadeOnDelete(true);
+			HasMany(x => x.Produtos).WithRequired(x => x.Solicitacao).HasForeignKey(x => x.IdSolicitacao).WillCascadeOnDelete(true);
 		}
 	}
 }

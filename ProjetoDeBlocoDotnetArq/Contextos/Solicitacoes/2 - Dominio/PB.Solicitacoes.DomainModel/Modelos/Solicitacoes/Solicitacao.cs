@@ -2,31 +2,55 @@
 using PB.Solicitacoes.DomainModel.Enums;
 using PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PB.Solicitacoes.DomainModel.Modelos.Solicitacoes
 {
 	public class Solicitacao : Agregador
 	{
-		internal Solicitacao()
+		private IList<Cliente> _clientes;
+		private IList<Produto> _produtos;
+
+		public Solicitacao()
+			: base()
 		{
-
-		}
-
-		public Solicitacao(Cliente cliente) : base()
-		{
-			// TODO: Complete member initialization
-			this.Cliente = cliente;
-
 			this.Rascunhar();
+
+			_clientes = new List<Cliente>();
+			_produtos = new List<Produto>();
 		}
 
-		public Cliente Cliente { get; set; }
-		public Produto Produto { get; private set; }
+		public ICollection<Cliente> Clientes
+		{
+			get
+			{
+				return _clientes.ToArray();
+			}
+		}
+
+		public ICollection<Produto> Produtos
+		{
+			get
+			{
+				return _produtos.ToArray();
+			}
+		}
 
 		public DateTime DataDeCadastro { get; set; }
 		public DateTime? DataDeSolicitacao { get; set; }
 		public DateTime? DataDeDefericao { get; set; }
 		public TipoSituacaoSolicitacaoEnum Situacao { get; set; }
+
+		public void AdicionarCliente(Cliente cliente)
+		{
+			_clientes.Add(cliente);
+		}
+
+		public void AdicionarProduto(Produto produto)
+		{
+			_produtos.Add(produto);
+		}
 
 		public virtual void Rascunhar()
 		{

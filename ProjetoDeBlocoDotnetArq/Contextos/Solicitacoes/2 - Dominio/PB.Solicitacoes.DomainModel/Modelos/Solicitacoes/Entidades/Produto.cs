@@ -6,6 +6,7 @@ namespace PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Entidades
 	{
 		public Guid IdProduto { get; private set; }
 
+		public Guid IdSolicitacao { get; set; }
 		public Solicitacao Solicitacao { get; private set; }
 	}
 }
