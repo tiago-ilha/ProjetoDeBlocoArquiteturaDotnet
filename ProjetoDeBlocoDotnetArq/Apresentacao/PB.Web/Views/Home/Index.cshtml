@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
 
 <div class="row">
@@ -52,16 +52,16 @@
 						<label for="inputCliente">Cliente</label>
 						<input type="email" class="form-control" id="inputClienteCorrente" placeholder="Código, CPF ou CNPJ">
 					</div>
-					<div class="form-group">
-						<label for="InputComprovanteResidencia">Comprovante de Residência</label>
-						<input type="file" id="InputComprovanteResidencia">
-						<p class="help-block">Anexe um documento tal com conta de luz, telefone, etc...</p>
-					</div>
-					<div class="form-group">
-						<label for="InputComprovanteRenda">Comprovante de Renda</label>
-						<input type="file" id="InputComprovanteRenda">
-						<p class="help-block">Anexe documentos tal como contra-cheque de pelo menos até o penúltimo mês.</p>
-					</div>
+					@*<div class="form-group">
+							<label for="InputComprovanteResidencia">Comprovante de Residência</label>
+							<input type="file" id="InputComprovanteResidencia">
+							<p class="help-block">Anexe um documento tal com conta de luz, telefone, etc...</p>
+						</div>
+						<div class="form-group">
+							<label for="InputComprovanteRenda">Comprovante de Renda</label>
+							<input type="file" id="InputComprovanteRenda">
+							<p class="help-block">Anexe documentos tal como contra-cheque de pelo menos até o penúltimo mês.</p>
+						</div>*@
 					<div class="checkbox">
 						<label>
 							<input type="radio" id="eletronica">Eletrônica
@@ -174,7 +174,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<button type="submit" id="btn-cadastrar-cliente" class="btn btn-primary">Salvar</button>
 				</div>
 			</form>
 		</div>
@@ -291,3 +291,17 @@
 		</div>
 	</div>
 </div>
+
+@section scripts{
+
+	<script>
+		$(document).ready(function () {
+			
+			$("#btn-cadastrar-cliente").click(function () {
+				alert("teste");
+			});
+			
+		});
+	</script>
+
+}
