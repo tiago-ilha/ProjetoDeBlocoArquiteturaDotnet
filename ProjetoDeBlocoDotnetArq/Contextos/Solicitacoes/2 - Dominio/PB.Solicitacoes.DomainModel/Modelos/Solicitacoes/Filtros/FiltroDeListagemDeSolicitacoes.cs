@@ -15,10 +15,10 @@ namespace PB.Solicitacoes.DomainModel.Modelos.Solicitacoes.Filtros
 
 		public override Expression<Func<Solicitacao, bool>> AplicarFiltros()
 		{
-			return x => x.Situacao == TipoSituacaoSolicitacaoEnum.Rascunho ||
-					   x.Situacao == TipoSituacaoSolicitacaoEnum.Solicitado ||
-					   x.Situacao == TipoSituacaoSolicitacaoEnum.Deferido;
-		}
+			return x => x.Situacao.Descricao == TipoSituacaoSolicitacaoEnum.Rascunho.Descricao ||
+					   x.Situacao.Descricao == TipoSituacaoSolicitacaoEnum.Solicitado.Descricao ||
+					   x.Situacao.Descricao == TipoSituacaoSolicitacaoEnum.Deferido.Descricao;
+        }
 
 		//public override Expression<Func<Solicitacao, ListagemDeSolicitacoesComando>> AplicarProjecao()
 		//{

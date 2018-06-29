@@ -25,7 +25,7 @@ namespace PB.Solicitacoes.Infra.Repositorios
 				DataDeCadastro = x.DataDeCadastro,
 				DataDeSolicitacao = x.DataDeSolicitacao,
 				DataDeDefericao = x.DataDeDefericao,
-				Situacao = x.Situacao.ToString()
+				Situacao = x.Situacao.Descricao
 			});
 		}
 
