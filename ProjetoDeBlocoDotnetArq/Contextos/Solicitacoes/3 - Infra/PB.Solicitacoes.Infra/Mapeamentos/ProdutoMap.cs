@@ -12,7 +12,11 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 	{
 		public ProdutoMap()
 		{
-			HasKey(x => new { x.IdProduto, x.IdSolicitacao });
-		}
+			HasKey(x => new { x.IdProduto});
+
+            HasRequired(a => a.Solicitacao)
+                .WithMany(o => o.Produtos)
+                .HasForeignKey(o => o.IdSolicitacao);
+        }
 	}
 }

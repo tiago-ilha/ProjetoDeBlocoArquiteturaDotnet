@@ -41,8 +41,9 @@ namespace Alfa.Core.Servicos
 			{
 				RegistrarOperacao(agregador);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+                ex.Message.ToString();
 				_transacao.Desfazer();
 			}
 			finally

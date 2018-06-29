@@ -8,7 +8,7 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 	{
 		public ClienteMap()
 		{
-			HasKey(x => new { x.IdCliente, x.IdSolicitacao });
+			HasKey(x => new { x.IdCliente});
 
 			Property(x => x.Nome.NomeCompleto).HasColumnName("NomeCompleto")
 				.HasColumnType("varchar")
@@ -20,6 +20,10 @@ namespace PB.Solicitacoes.Infra.Mapeamentos
 				.HasColumnType("varchar")
 				.HasMaxLength(14)
 				.IsRequired();
-		}
+
+            HasRequired(a => a.Solicitacao)
+                .WithMany(o => o.Clientes)
+                .HasForeignKey(o => o.IdSolicitacao);
+        }
 	}
 }

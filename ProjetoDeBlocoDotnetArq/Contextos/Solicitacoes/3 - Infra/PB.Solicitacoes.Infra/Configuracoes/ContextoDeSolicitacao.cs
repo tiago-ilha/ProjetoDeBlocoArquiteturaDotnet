@@ -32,7 +32,7 @@ namespace PB.Solicitacoes.Infra.Configuracoes
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Types().Configure(x => x.ToTable(GetTableName(x.ClrType)));
-			modelBuilder.Properties<Guid>().Where(x => x.Name.StartsWith("Id")).Configure(x => x.IsKey().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity));
+			//modelBuilder.Properties<Guid>().Where(x => x.Name.StartsWith("Id")).Configure(x => x.IsKey().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity));
 
 			modelBuilder.ComplexType<TipoSituacaoSolicitacaoEnum>().Ignore(x => x.Valor);
 			modelBuilder.Types<Solicitacao>().Configure(x => x.Property(m => m.Situacao.Descricao).HasColumnName("Situacao").HasMaxLength(30));

@@ -68,6 +68,7 @@ namespace PB.Solicitacoes.Api.Controllers
 			var documento = new Documento(modelo.Documento);
 			var rg = new RG(modelo.RG);
 			Cliente cliente = new PessoaFisica(nome, documento, rg);
+            cliente.IdCliente = Guid.NewGuid();
 
 			return RegistrarSolicitacao(ref response, cliente);
 		}
