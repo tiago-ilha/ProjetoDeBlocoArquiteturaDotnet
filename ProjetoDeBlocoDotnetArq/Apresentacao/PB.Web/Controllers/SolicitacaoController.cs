@@ -56,7 +56,7 @@ namespace PB.Web.Controllers
 		public async Task<ActionResult> Cadastrar(SolicitacaoDeClientePessoaFisicaViewModel modelo)
 		{
 			var client = new HttpClient();
-			HttpResponseMessage resposta = await client.PostAsJsonAsync("http://localhost:64189/api/solicitacao/pessoa-fisica", modelo);
+			HttpResponseMessage resposta = await client.PostAsJsonAsync("http://localhost:53708/api/solicitacao/pessoa-fisica", modelo);
 
 			return Json(new{resultadoDaOperacao = resposta});
 

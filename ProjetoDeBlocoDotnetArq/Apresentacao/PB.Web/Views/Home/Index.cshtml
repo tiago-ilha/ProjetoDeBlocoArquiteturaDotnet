@@ -1,5 +1,4 @@
-﻿@page
-@model PB.Web.Models.SolicitacaoDeClientePessoaFisicaViewModel
+﻿@model PB.Web.Models.SolicitacaoDeClientePessoaFisicaViewModel
 
 @{
 	ViewBag.Title = "Home Page";
@@ -163,11 +162,13 @@
 					<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 					<div class="form-group">
 						<label for="inputCliente" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.Documento" class="control-label">CPF</label>
-						<input type="text" class="form-control" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.Documento" placeholder="CPF">
+						@Html.EditorFor(x => x.Documento, new { @id = "cpf", @class = "form-control" })
+						@*<input type="text" class="form-control" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.Documento" placeholder="CPF">*@
 					</div>
 					<div class="form-group">
 						<label for="inputCliente" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.NomeCompleto">Nome e sobrenome</label>
-						<input type="text" class="form-control" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.NomeCompleto" placeholder="Nome Completo">
+						@Html.EditorFor(x => x.NomeCompleto, new { @id = "nomeCompleto", @class = "form-control" })
+						@*<input type="text" class="form-control" asp-for="SolicitacaoDeClientePessoaFisicaViewModel.NomeCompleto" placeholder="Nome Completo">*@
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -295,8 +296,29 @@
 	<script>
 		$(document).ready(function () {
 
-			$("#btn-cadastrar-cliente").click(function () {
-				alert("teste");
+			$("#btn-cadastrar-cliente").click(function (e) {
+				e.preventDefault();
+
+				var pessoaFisica = {
+					nomeCompleto: $("#nomeCompleto").val(),
+					cpf: $("#cpf").val()
+				};
+
+				$.ajax({
+					url: '@Url.Action("Cadastrar", "Solicitacao")',
+					dataType: "application/json",
+					method: 'post',
+					data: pessoaFisica,
+					success: function (dados) {
+						if (dados.EstaValido) {
+							alert(dados);
+						} else {
+							alert(dados);
+						}
+					},
+				});
+
+				//alert("teste");
 			});
 
 		});
